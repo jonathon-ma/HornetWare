@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://buly2cl4wo8yo"]
+
+[ext_resource type="Script" path="res://HornetWare/hornet_ware.gd" id="1_1swuc"]
+[ext_resource type="PackedScene" uid="uid://djfiwf16pvrbx" path="res://HornetWare/MainMenu.tscn" id="2_xncob"]
+
+[node name="HornetWare" type="Node2D"]
+script = ExtResource("1_1swuc")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_xncob")]
+
+[connection signal="begin" from="MainMenu" to="." method="_on_main_menu_begin"]

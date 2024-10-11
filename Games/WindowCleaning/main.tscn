@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv1dlaglhtwxh"]
+
+[ext_resource type="Script" path="res://Games/WindowCleaning/main.gd" id="1_7gxw3"]
+[ext_resource type="Script" path="res://Games/WindowCleaning/mask.gd" id="2_10uyu"]
+[ext_resource type="Shader" path="res://Games/WindowCleaning/dirty.gdshader" id="2_s5v57"]
+[ext_resource type="Texture2D" uid="uid://bfjahlx6dmcwd" path="res://Games/WindowCleaning/icon.svg" id="3_myklw"]
+[ext_resource type="Texture2D" uid="uid://cqnohl210ffey" path="res://Games/WindowCleaning/rabbit.jpg" id="4_l3w6k"]
+[ext_resource type="PackedScene" uid="uid://e6wrtquml41a" path="res://Games/WindowCleaning/wiper.tscn" id="6_jp0s7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgofv"]
+shader = ExtResource("2_s5v57")
+
+[node name="WindowCleaning" type="Node2D"]
+script = ExtResource("1_7gxw3")
+
+[node name="Window" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_l3w6k")
+expand_mode = 1
+
+[node name="DirtyWindow" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_lgofv")
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_myklw")
+metadata/_edit_use_anchors_ = true
+
+[node name="MaskViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+gui_disable_input = true
+size = Vector2i(1152, 648)
+render_target_clear_mode = 1
+render_target_update_mode = 4
+
+[node name="Mask" type="Node2D" parent="MaskViewport"]
+script = ExtResource("2_10uyu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Wiper" parent="." instance=ExtResource("6_jp0s7")]
+position = Vector2(538, 175)
+input_pickable = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

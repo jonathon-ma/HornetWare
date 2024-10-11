@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://e6wrtquml41a"]
+
+[ext_resource type="Texture2D" uid="uid://bmiyas3g8fv65" path="res://Games/WindowCleaning/scrubber.png" id="1_6bm55"]
+[ext_resource type="Script" path="res://Games/WindowCleaning/wiper.gd" id="1_ko86x"]
+
+[node name="Wiper" type="RigidBody2D"]
+position = Vector2(100, 100)
+gravity_scale = 0.0
+center_of_mass_mode = 1
+lock_rotation = true
+linear_damp = 50.0
+angular_damp = 10.0
+script = ExtResource("1_ko86x")
+
+[node name="Scrubber" type="Sprite2D" parent="."]
+position = Vector2(0, 100)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_6bm55")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-104, -48, 104, -48, 104, 56, 24, 64, 32, 168, 16, 248, -16, 248, -32, 168, -32, 64, -104, 56)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
