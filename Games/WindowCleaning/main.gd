@@ -28,9 +28,8 @@ func hasWon() -> bool:
 	for x in range(0, screen_size.x, spacing): 
 		for y in range(0, screen_size.y, spacing):
 			if image.get_pixel(x,y) == Color(1,1,1,0): count += 1
-	print(count)
+	print("Matched Points: " + str(count))
 	return (screen_size.x / spacing) * (screen_size.y / spacing) * clear_percent < count
-
 
 func _on_timer_timeout() -> void:
 	print("has won: " + str(hasWon()))

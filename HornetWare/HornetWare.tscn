@@ -8,4 +8,9 @@ script = ExtResource("1_1swuc")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_xncob")]
 
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [connection signal="begin" from="MainMenu" to="." method="_on_main_menu_begin"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
