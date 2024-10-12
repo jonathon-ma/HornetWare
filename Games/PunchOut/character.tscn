@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://briltf5xthmqn"]
+
+[ext_resource type="Script" path="res://Games/PunchOut/character.gd" id="1_ouoqj"]
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_ouoqj")

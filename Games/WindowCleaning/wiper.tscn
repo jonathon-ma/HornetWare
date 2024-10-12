@@ -7,6 +7,7 @@
 position = Vector2(100, 100)
 gravity_scale = 0.0
 center_of_mass_mode = 1
+sleeping = true
 lock_rotation = true
 linear_damp = 50.0
 angular_damp = 10.0
@@ -18,7 +19,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_6bm55")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-104, -48, 104, -48, 104, 56, 24, 64, 32, 168, 16, 248, -16, 248, -32, 168, -32, 64, -104, 56)
+polygon = PackedVector2Array(-114, -46, 116, -46, 120, 62, 24, 64, 32, 168, 24, 250, -24, 250, -32, 168, -32, 64, -116, 64)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
